@@ -1,0 +1,139 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #f3f3f3;
+        font-family: 'Righteous', cursive;
+        margin: 0;
+        padding: 0;
+        color: #333333;
+    }
+
+    .main-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-section {
+        text-align: center;
+        padding: 20px;
+        background-color: #FF0000;
+        color: #ffffff;
+        border-radius: 10px 10px 0 0;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Fredoka One', cursive;
+    }
+
+    .content-section {
+        padding: 30px;
+    }
+
+    .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .info-table th,
+    .info-table td {
+        padding: 15px;
+        font-size: 16px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-table th {
+        background-color: #FF0000;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .info-table td {
+        background-color: #f9f9f9;
+        color: #333333;
+        text-align: center;
+    }
+
+    .info-table tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+
+    .info-table tr:hover td {
+        background-color: #ffd1d1;
+        transition: background-color 0.3s ease;
+    }
+
+    .footer-section {
+        text-align: center;
+        padding: 20px;
+        background-color: #f3f3f3;
+        font-size: 14px;
+        color: #666666;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+        .info-table th,
+        .info-table td {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            User Details Overview
+        </div>
+
+        <!-- Content Section -->
+        <div class="content-section">
+            <table class="info-table">
+                <tr>
+                    <th>Username</th>
+                    <td>{{ object.username }}</td>
+                    <th>Email ID</th>
+                    <td>{{ object.email }}</td>
+                </tr>
+                <tr>
+                    <th>Mobile Number</th>
+                    <td>{{ object.phoneno }}</td>
+                    <th>Gender</th>
+                    <td>{{ object.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ object.address }}</td>
+                    <th>Country</th>
+                    <td>{{ object.country }}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{{ object.state }}</td>
+                    <th>City</th>
+                    <td>{{ object.city }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            © 2025 Your Application Name. All rights reserved.
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,132 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<title>Register Your Details</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <style type="text/css">
+        .form-table {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-table td {
+            padding: 10px;
+        }
+
+        .form-table td input, .form-table td textarea, .form-table td select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-primary {
+            background-color: #6c757d;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a6268;
+        }
+
+        body {
+            background: url("{% static 'bg.jpg' %}");
+        }
+
+        .container {
+            background-color: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        #title {
+            font-family: 'Fredoka One', cursive;
+            color: #007bff;
+        }
+
+        .text-uppercase {
+            font-family: 'Righteous', cursive;
+        }
+
+        .btn-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            color: #0056b3;
+        }
+	</style>
+	</head>
+	<body>
+	<div class="container-fluid">
+		<div>
+			<h2 class="text-center" id="title">Prediction Of Used Car Prices Using Artificial Neural Networks And Machine Learning</h2>
+			 <hr>
+			<div class="row">
+				<div class="col-md-12">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<div class="text-center mb-4">
+								<img src="{% static '/Register1.jpg' %}" alt="Register" style="width: 150px; height: auto;">
+								<h3 class="mt-3">REGISTER YOUR DETAILS HERE !!!</h3>
+							</div>
+							<table class="form-table" align="center" width="825">
+								<tr>
+									<td>Enter Username</td>
+									<td><input type="text" name="username" id="username" placeholder="User Name" required></td>
+									<td>Enter Password</td>
+									<td><input type="password" name="password" id="password" placeholder="Password" required></td>
+								</tr>
+								<tr>
+									<td>Enter Email Id</td>
+									<td><input type="email" name="email" id="email" placeholder="Enter Email" required></td>
+									<td>Enter Address</td>
+									<td><textarea name="address" placeholder="Enter Address"></textarea></td>
+								</tr>
+								<tr>
+									<td>Enter Gender</td>
+									<td><select name="gender">
+										<option>----Select Gender----</option>
+										<option>Male</option>
+										<option>Female</option>
+									</select></td>
+									<td>Enter Mobile Number</td>
+									<td><input type="number" name="phoneno" id="phoneno" placeholder="Enter Mobile Number" required></td>
+								</tr>
+								<tr>
+									<td>Enter Country Name</td>
+									<td><input type="text" name="country" id="country" placeholder="Enter Country Name" required></td>
+									<td>Enter State Name</td>
+									<td><input type="text" name="state" id="state" placeholder="Enter State Name" required></td>
+								</tr>
+								<tr>
+									<td>Enter City Name</td>
+									<td><input type="text" name="city" id="city" placeholder="Enter City Name" required></td>
+									<td></td>
+									<td><input type="submit" class="btn btn-primary" name="submit" value="Register"></td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

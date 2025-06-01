@@ -1,0 +1,198 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #000000;
+        font-family: 'Righteous', cursive;
+    }
+
+    .container-fluid {
+        padding: 50px;
+    }
+
+    .container {
+        background-color: #ffffff;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    #title {
+        font-family: 'Fredoka One', cursive;
+        font-size: 24px;
+        color: #ff4500;
+    }
+
+    .style1 {
+        color: #ff0000;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .style4 {
+        color: #ffff00;
+        font-weight: bold;
+    }
+
+    .style6 {
+        font-size: 24px;
+        color: #ffff00;
+        font-weight: bold;
+    }
+
+    .style7 {
+        color: #ffff00;
+    }
+
+    table {
+        width: 100%;
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+
+    table tr td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    table tr td input {
+        width: 90%;
+        padding: 8px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+
+    table tr td input:focus {
+        border-color: #ff4500;
+        outline: none;
+        box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+    }
+
+    table tr td.bg-red {
+        background-color: #ff0000;
+        color: white;
+        font-weight: bold;
+    }
+
+    .style1[type="submit"] {
+        background-color: #ff4500;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .style1[type="submit"]:hover {
+        background-color: #cc3700;
+    }
+
+    table tr td.result {
+        color: red;
+        font-size: 20px;
+        font-family: fantasy;
+    }
+
+    .predicted-table {
+        margin-top: 30px;
+        border: 2px solid #ff4500;
+        padding: 10px;
+        background-color: #fff5e6;
+        border-radius: 10px;
+    }
+
+    .predicted-table td {
+        padding: 15px;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <p class="text-uppercase pull-center style1">PREDICTION OF CAR PRICE!!!</p>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td colspan="4" class="bg-red">ENTER USED CAR DETAILS HERE!!!</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-red">Enter RID</td>
+                                    <td><input type="text" name="RID" placeholder="Enter RID"></td>
+                                    <td class="bg-red">Enter Car Name</td>
+                                    <td><input type="text" name="Car_Name" placeholder="Enter Car Name"></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-red">Enter Location</td>
+                                    <td><input type="text" name="Location" placeholder="Enter Location"></td>
+                                    <td class="bg-red">Enter Car Year</td>
+                                    <td><input type="text" name="Car_Year" placeholder="Enter Car Year"></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-red">Enter Kilometer</td>
+                                    <td><input type="text" name="kilometer" placeholder="Enter Kilometer"></td>
+                                    <td class="bg-red">Enter Fuel Type</td>
+                                    <td><input type="text" name="Fuel_Type" placeholder="Enter Fuel Type"></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-red">Enter Transmission</td>
+                                    <td><input type="text" name="Transmission" placeholder="Enter Transmission"></td>
+                                    <td class="bg-red">Enter Owner Type</td>
+                                    <td><input type="text" name="Owner_Type" placeholder="Enter Owner Type"></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-red">Enter Mileage</td>
+                                    <td><input type="text" name="Mileage" placeholder="Enter Mileage"></td>
+                                    <td class="bg-red">Enter Engine</td>
+                                    <td><input type="text" name="Engine" placeholder="Enter Engine"></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-red">Enter Power</td>
+                                    <td><input type="text" name="Power" placeholder="Enter Power"></td>
+                                    <td class="bg-red">Enter Seats</td>
+                                    <td><input type="text" name="Seats" placeholder="Enter Seats"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" align="center">
+                                        <input name="submit" type="submit" class="style1" value="Predict">
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <hr>
+                            <table class="predicted-table">
+                                <tr>
+                                    <td class="bg-red">Predicted Used Car Price:</td>
+                                    <td class="result">{{ objs }}</td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <!-------null------>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
